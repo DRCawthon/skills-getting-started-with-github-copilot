@@ -6,13 +6,14 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 - View all available extracurricular activities
 - Sign up for activities
+- Drop from activities
 
 ## Getting Started
 
 1. Install the dependencies:
 
    ```
-   pip install fastapi uvicorn
+   pip install -r requirements.txt
    ```
 
 2. Run the application:
@@ -31,6 +32,7 @@ A super simple FastAPI application that allows students to view and sign up for 
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| POST   | `/activities/{activity_name}/drop?email=student@mergington.edu`  | Drop from an activity                                               |
 
 ## Data Model
 
@@ -48,3 +50,19 @@ The application uses a simple data model with meaningful identifiers:
    - Grade level
 
 All data is stored in memory, which means data will be reset when the server restarts.
+
+## Testing
+
+The application includes a comprehensive test suite to ensure all functionality works as expected. To run the tests:
+
+```bash
+python -m pytest
+```
+
+For test coverage information:
+
+```bash
+python -m pytest --cov=src tests/
+```
+
+See the [tests README](../tests/README.md) for more information about the test suite.
